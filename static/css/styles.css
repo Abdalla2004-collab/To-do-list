@@ -1,3 +1,78 @@
-body {
-  background-color: wheat;
-}/*# sourceMappingURL=styles.css.map */
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightpink;
+}
+
+.content{
+    
+    flex: 1;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+    
+}
+
+.contents-table {
+  vertical-align: middle;
+  border: 2px solid;
+  margin: 0 auto;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+
+}
+.contents-table th, td {
+    border: 2px solid;
+    padding: 8px;
+}
+.contents-table th{
+    text-align: center;
+    background-color: wheat;
+    
+}
+.contents-table td {
+  text-align: left;
+  max-width: 150px;        
+  white-space: nowrap;     
+  overflow: hidden;        
+  text-overflow: ellipsis;
+  background-color: rgb(250, 237, 214);
+  cursor: help;
+}
+
+.fa-trash, .fa-pen-to-square{
+    height: 40%;
+    margin-left: 38%;
+    padding-bottom: 8px;
+}
+.fa-trash:hover, .fa-pen-to-square:hover{
+    opacity: 50%;
+    
+}
+.fa-trash{
+    color: green;
+}
+.fa-pen-to-square{
+    color: black;
+}
+
+.form-wrapper{
+   max-width: 700px;
+   
+}
+.form-wrapper form input[type="text"]{
+    width: 465px;
+    padding: 3px;
+}
+.form-wrapper form input[type="submit"]{
+    margin-left: 50px;    
+}
+

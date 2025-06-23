@@ -1,15 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css') }}">
-        <title>My App</title>
-    </head>
-    <body>
-        <h1>welcome to my App</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum commodi doloremque sunt suscipit blanditiis amet saepe perspiciatis nesciunt similique adipisci, laboriosam asperiores quaerat debitis? Eius nesciunt enim beatae veritatis laudantium.
-        </p>
-    </body>
-</html>
+{% extends 'base.html'%}
+
+{% block head%}
+<title>Loop List</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Loop List</h1>
+
+    {% if tasks | length < 1 %}
+    <h3>There are no tasks...start planning your routine!</h3>
+    {% else %}
+        <table class="contents-table">
+            <colgroup>
+                <col style="width: 75%;">
+                <col style="width: 15%;">
+                <col style="width: 10%;">
+            </colgroup>
+            <thead>
+                <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                <td title="{{ task.content }}">{{ task.content }}</td>
+                <td title="{{ task.created.strftime('%Y-%m-%d') }}">{{ task.created.strftime("%Y-%m-%d") }}</td>
+                <td>
+                    <a href="/delete/{{ task.id }}"><i class="fa-solid fa-trash"></i></a><br>
+                    <a href="/edit/{{ task.id }}"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    {% endif %}
+
+    <div class="form-wrapper">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content" required>
+            <input type="submit" name="Add Task" id="Add Task" value="Add Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
